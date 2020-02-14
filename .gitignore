@@ -134,3 +134,4 @@ tfidf/*.pickle
 # Wikipedia dumps
 tfidf/bgwiki*
 tfidf/text.json
+src_qa/bgwiki*
