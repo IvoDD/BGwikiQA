@@ -1,0 +1,12 @@
+Go into tfidf directory
+Get wikipedia dump from https://dumps.wikimedia.org/bgwiki/20200201/
+More specifically the file https://dumps.wikimedia.org/bgwiki/20200201/bgwiki-20200201-pages-articles.xml.bz2
+Run wikiextractor "python3 WikiExtractor.py -o extracted -b 10G --json --min_text_length 100 bgwiki-20200201-pages-articles.xml.bz2"
+Move resulting file as 'text.json' in project directory.
+
+Run build-tokens.py (a couple of hours - has progress log)
+Run lowercase.py (1 minute)
+Run build-tf-idf.py (2 minutes)
+
+Run query.py
+Answer queries

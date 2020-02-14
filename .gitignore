@@ -127,3 +127,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# TF-IDF pickle files
+tfidf/*.pickle
+
+# Wikipedia dumps
+tfidf/bgwiki*
+tfidf/text.json
