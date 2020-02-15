@@ -46,7 +46,8 @@ class TF_IDF(): # Sparse
                 doc['bow'][word] /= vlen
     
     def save(self):
-        with open('tf_idf.pickle', 'wb') as pick:
+        self.docs = [{'title' : doc['title'], 'bow' : doc['bow'], 'len' : len(doc['words'])} for doc in self.docs]
+        with open('tf_idf_min.pickle', 'wb') as pick:
             pickle.dump(self.docs, pick)
         with open('idf.pickle', 'wb') as pick:
             pickle.dump(self.idf, pick)

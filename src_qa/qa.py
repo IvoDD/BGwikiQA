@@ -1,8 +1,8 @@
 import xml.etree.ElementTree as ET
 import heapq
-from simple import evaluate_simple
-from adv_word_match import evaluate_word_match
-from adv_emb_match import evaluate_emb_match
+from .simple import evaluate_simple
+from .adv_word_match import evaluate_word_match
+from .adv_emb_match import evaluate_emb_match
 
 first_in_par_w = 1.2
 in_first_par_w = 1.3

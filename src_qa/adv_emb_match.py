@@ -3,7 +3,7 @@ from flair.data import Sentence
 from flair.embeddings import WordEmbeddings
 import numpy as np
 import torch
-from hungarian import hungarian
+from .hungarian import hungarian
 
 str_to_embed = WordEmbeddings('bg-wiki')
 
@@ -23,6 +23,8 @@ question_dict = {
 }
 
 def string_to_word(s):
+    if len(s)==0:
+        return None
     if s[0] <= '9' and s[0] >= '0':
         return number_special
     if s.isalpha():
@@ -59,7 +61,7 @@ def dist(e1, e2):
 
 def dist_or(e1, e2):
     if isinstance(e1, list):
-        return min([dist(x, e2) for x in e1])
+        return min([dist(x, e2) for x in e1], default=0)
     return dist(e1, e2)
 
 def eval_dist(q_embed, s_embed):

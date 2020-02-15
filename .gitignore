@@ -132,6 +132,7 @@ dmypy.json
 tfidf/*.pickle
 
 # Wikipedia dumps
+bgwiki*
 tfidf/bgwiki*
 tfidf/text.json
 src_qa/bgwiki*

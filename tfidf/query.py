@@ -19,7 +19,7 @@ def init():
     with open(os.path.join(cdir, 'idf.pickle'), 'rb') as pick:
         idf = pickle.load(pick)
 
-    with open(os.path.join(cdir, 'tf_idf.pickle'), 'rb') as pick:
+    with open(os.path.join(cdir, 'tf_idf_min.pickle'), 'rb') as pick:
         docs = pickle.load(pick)
     print('Done initializing')
 
@@ -62,7 +62,7 @@ def calc_dists(bow):
         for term in bow.keys():
             if term in doc['bow'].keys():
                 sim += bow[term] * doc['bow'][term]
-        doc['sim'] = sim * log(len(doc['words']))
+        doc['sim'] = sim * log(doc['len'])**2
     print('Done calculating distances')
     
 init()
@@ -72,4 +72,4 @@ if __name__ == '__main__':
         print('Processing query')
         k_best = query(text)
         for doc in k_best:
-            print(doc['url'])
+            print(doc['title'])

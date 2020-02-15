@@ -1,5 +1,5 @@
 from nltk.tokenize import word_tokenize
-from stemmer import stemmer
+from .stemmer import stemmer
 import math
 
 number_special = "NumberUniqueWord"
@@ -18,6 +18,8 @@ question_dict = {
 }
 
 def string_to_word(s):
+    if len(s)==0:
+        return None
     if s[0] <= '9' and s[0] >= '0':
         return number_special
     if s.isalpha():
